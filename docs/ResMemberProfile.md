@@ -1,6 +1,7 @@
-# MyOhioAssemblycomPublicApi.ResMemberProfile
+# MyOhioAssemblyComPublicApi.ResMemberProfile
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **firstName** | **String** |  | [optional] 
@@ -26,3 +27,5 @@ Name | Type | Description | Notes
 **interestsIndividual** | [**[MemberInterestsIndividual]**](MemberInterestsIndividual.md) |  | [optional] 
 **interestsIndividualOther** | **String** |  | [optional] 
 **docs** | [**ResMemberProfileDocs**](ResMemberProfileDocs.md) |  | [optional] 
+
+

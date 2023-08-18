@@ -1,6 +1,6 @@
-# MyOhioAssemblycomPublicApi.ShopApi
+# MyOhioAssemblyComPublicApi.ShopApi
 
-All URIs are relative to *http://localhost:{hostPort}/{apiVersion}*
+All URIs are relative to *http://localhost:8101/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,24 +27,28 @@ Method | HTTP request | Description
 [**shopItemsList**](ShopApi.md#shopItemsList) | **GET** /shop/items | List shop items
 [**shopItemsUpdateOne**](ShopApi.md#shopItemsUpdateOne) | **PUT** /shop/items/{itemId} | Update shop item
 
-<a name="memberOrderDeleteOne"></a>
-# **memberOrderDeleteOne**
-> InlineResponse20019 memberOrderDeleteOne(memberId, orderId)
+
+
+## memberOrderDeleteOne
+
+> MemberOrderDeleteOne200Response memberOrderDeleteOne(memberId, orderId)
 
 Delete order
 
 Delete order.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let orderId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | order id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let memberId = "memberId_example"; // String | member id
+let orderId = "orderId_example"; // String | order id
 apiInstance.memberOrderDeleteOne(memberId, orderId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -56,14 +60,15 @@ apiInstance.memberOrderDeleteOne(memberId, orderId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **orderId** | [**String**](.md)| order id | 
+ **memberId** | **String**| member id | 
+ **orderId** | **String**| order id | 
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**MemberOrderDeleteOne200Response**](MemberOrderDeleteOne200Response.md)
 
 ### Authorization
 
@@ -71,29 +76,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberOrderItemsQuantityUpdateOne"></a>
-# **memberOrderItemsQuantityUpdateOne**
-> InlineResponse2013 memberOrderItemsQuantityUpdateOne(memberId, orderId, itemId, quantity)
+
+## memberOrderItemsQuantityUpdateOne
+
+> MemberOrdersCreate201Response memberOrderItemsQuantityUpdateOne(memberId, orderId, itemId, quantity)
 
 Update order item quantity
 
 Update order item.  This operation results in adding an item if not already added.  This operation results in removing an item if quantity is zero.  This operation is restricted to auth member id and elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let orderId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | order id
-let itemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | item id
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let memberId = "memberId_example"; // String | member id
+let orderId = "orderId_example"; // String | order id
+let itemId = "itemId_example"; // String | item id
 let quantity = 56; // Number | item quantity
-
 apiInstance.memberOrderItemsQuantityUpdateOne(memberId, orderId, itemId, quantity, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -105,16 +113,17 @@ apiInstance.memberOrderItemsQuantityUpdateOne(memberId, orderId, itemId, quantit
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **orderId** | [**String**](.md)| order id | 
- **itemId** | [**String**](.md)| item id | 
+ **memberId** | **String**| member id | 
+ **orderId** | **String**| order id | 
+ **itemId** | **String**| item id | 
  **quantity** | **Number**| item quantity | 
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**MemberOrdersCreate201Response**](MemberOrdersCreate201Response.md)
 
 ### Authorization
 
@@ -122,29 +131,33 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberOrderItemsUpdateOne"></a>
-# **memberOrderItemsUpdateOne**
-> InlineResponse2013 memberOrderItemsUpdateOne(memberId, orderId, itemId, opts)
+
+## memberOrderItemsUpdateOne
+
+> MemberOrdersCreate201Response memberOrderItemsUpdateOne(memberId, orderId, itemId, opts)
 
 Update order item
 
 Update order item.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let orderId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | order id
-let itemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | item id
-let opts = { 
-  'body': new MyOhioAssemblycomPublicApi.ItemsItemIdBody1() // ItemsItemIdBody1 | 
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let memberId = "memberId_example"; // String | member id
+let orderId = "orderId_example"; // String | order id
+let itemId = "itemId_example"; // String | item id
+let opts = {
+  'memberOrderItemsUpdateOneRequest': new MyOhioAssemblyComPublicApi.MemberOrderItemsUpdateOneRequest() // MemberOrderItemsUpdateOneRequest | 
 };
 apiInstance.memberOrderItemsUpdateOne(memberId, orderId, itemId, opts, (error, data, response) => {
   if (error) {
@@ -157,16 +170,17 @@ apiInstance.memberOrderItemsUpdateOne(memberId, orderId, itemId, opts, (error, d
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **orderId** | [**String**](.md)| order id | 
- **itemId** | [**String**](.md)| item id | 
- **body** | [**ItemsItemIdBody1**](ItemsItemIdBody1.md)|  | [optional] 
+ **memberId** | **String**| member id | 
+ **orderId** | **String**| order id | 
+ **itemId** | **String**| item id | 
+ **memberOrderItemsUpdateOneRequest** | [**MemberOrderItemsUpdateOneRequest**](MemberOrderItemsUpdateOneRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**MemberOrdersCreate201Response**](MemberOrdersCreate201Response.md)
 
 ### Authorization
 
@@ -174,25 +188,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="memberOrderPaymentList"></a>
-# **memberOrderPaymentList**
-> InlineResponse20020 memberOrderPaymentList(opts)
+
+## memberOrderPaymentList
+
+> MemberOrderPaymentList200Response memberOrderPaymentList(opts)
 
 List order payments
 
 Return all payments.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let opts = { 
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let opts = {
   'includeDeleted': true // Boolean | 
 };
 apiInstance.memberOrderPaymentList(opts, (error, data, response) => {
@@ -206,13 +224,14 @@ apiInstance.memberOrderPaymentList(opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **includeDeleted** | **Boolean**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**MemberOrderPaymentList200Response**](MemberOrderPaymentList200Response.md)
 
 ### Authorization
 
@@ -220,28 +239,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberOrderPaymentsCreate"></a>
-# **memberOrderPaymentsCreate**
-> InlineResponse2013 memberOrderPaymentsCreate(memberId, orderId, opts)
+
+## memberOrderPaymentsCreate
+
+> MemberOrdersCreate201Response memberOrderPaymentsCreate(memberId, orderId, opts)
 
 Create order payment
 
 Create payment associated with SUBMITTED order.  Will only be successful if order is in SUBMITTED status.  The methodCardLast4 is required if method is CARD.  This operation is restricted to auth member id and elevated roles
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let orderId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | order id
-let opts = { 
-  'body': new MyOhioAssemblycomPublicApi.OrderIdPaymentsBody() // OrderIdPaymentsBody | 
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let memberId = "memberId_example"; // String | member id
+let orderId = "orderId_example"; // String | order id
+let opts = {
+  'memberOrderPaymentsCreateRequest': new MyOhioAssemblyComPublicApi.MemberOrderPaymentsCreateRequest() // MemberOrderPaymentsCreateRequest | 
 };
 apiInstance.memberOrderPaymentsCreate(memberId, orderId, opts, (error, data, response) => {
   if (error) {
@@ -254,15 +277,16 @@ apiInstance.memberOrderPaymentsCreate(memberId, orderId, opts, (error, data, res
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **orderId** | [**String**](.md)| order id | 
- **body** | [**OrderIdPaymentsBody**](OrderIdPaymentsBody.md)|  | [optional] 
+ **memberId** | **String**| member id | 
+ **orderId** | **String**| order id | 
+ **memberOrderPaymentsCreateRequest** | [**MemberOrderPaymentsCreateRequest**](MemberOrderPaymentsCreateRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**MemberOrdersCreate201Response**](MemberOrdersCreate201Response.md)
 
 ### Authorization
 
@@ -270,28 +294,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="memberOrderPaymentsDeleteOne"></a>
-# **memberOrderPaymentsDeleteOne**
-> InlineResponse20021 memberOrderPaymentsDeleteOne(memberId, orderId, paymentId)
+
+## memberOrderPaymentsDeleteOne
+
+> MemberOrderPaymentsDeleteOne200Response memberOrderPaymentsDeleteOne(memberId, orderId, paymentId)
 
 Delete order payment
 
 Deletes existing non-deleted member.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let orderId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | order id
-let paymentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | payment id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let memberId = "memberId_example"; // String | member id
+let orderId = "orderId_example"; // String | order id
+let paymentId = "paymentId_example"; // String | payment id
 apiInstance.memberOrderPaymentsDeleteOne(memberId, orderId, paymentId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -303,15 +330,16 @@ apiInstance.memberOrderPaymentsDeleteOne(memberId, orderId, paymentId, (error, d
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **orderId** | [**String**](.md)| order id | 
- **paymentId** | [**String**](.md)| payment id | 
+ **memberId** | **String**| member id | 
+ **orderId** | **String**| order id | 
+ **paymentId** | **String**| payment id | 
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**MemberOrderPaymentsDeleteOne200Response**](MemberOrderPaymentsDeleteOne200Response.md)
 
 ### Authorization
 
@@ -319,28 +347,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberOrderPaymentsUpdateOneCancel"></a>
-# **memberOrderPaymentsUpdateOneCancel**
-> InlineResponse2013 memberOrderPaymentsUpdateOneCancel(memberId, orderId, paymentId)
+
+## memberOrderPaymentsUpdateOneCancel
+
+> MemberOrdersCreate201Response memberOrderPaymentsUpdateOneCancel(memberId, orderId, paymentId)
 
 Cancel order payment
 
 Update status of payment associated with order to CANCELLED.  This operation will only be successful if payment status is already PENDING.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let orderId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | order id
-let paymentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | payment id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let memberId = "memberId_example"; // String | member id
+let orderId = "orderId_example"; // String | order id
+let paymentId = "paymentId_example"; // String | payment id
 apiInstance.memberOrderPaymentsUpdateOneCancel(memberId, orderId, paymentId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -352,15 +383,16 @@ apiInstance.memberOrderPaymentsUpdateOneCancel(memberId, orderId, paymentId, (er
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **orderId** | [**String**](.md)| order id | 
- **paymentId** | [**String**](.md)| payment id | 
+ **memberId** | **String**| member id | 
+ **orderId** | **String**| order id | 
+ **paymentId** | **String**| payment id | 
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**MemberOrdersCreate201Response**](MemberOrdersCreate201Response.md)
 
 ### Authorization
 
@@ -368,28 +400,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberOrderPaymentsUpdateOneComplete"></a>
-# **memberOrderPaymentsUpdateOneComplete**
-> InlineResponse2013 memberOrderPaymentsUpdateOneComplete(memberId, orderId, paymentId)
+
+## memberOrderPaymentsUpdateOneComplete
+
+> MemberOrdersCreate201Response memberOrderPaymentsUpdateOneComplete(memberId, orderId, paymentId)
 
 Complete order payment
 
 Update status of payment associated with order to COMPLETE.  This operation will only be successful if payment status is already PENDING.  This operation will also change the associated order status to PAID.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let orderId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | order id
-let paymentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | payment id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let memberId = "memberId_example"; // String | member id
+let orderId = "orderId_example"; // String | order id
+let paymentId = "paymentId_example"; // String | payment id
 apiInstance.memberOrderPaymentsUpdateOneComplete(memberId, orderId, paymentId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -401,15 +436,16 @@ apiInstance.memberOrderPaymentsUpdateOneComplete(memberId, orderId, paymentId, (
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **orderId** | [**String**](.md)| order id | 
- **paymentId** | [**String**](.md)| payment id | 
+ **memberId** | **String**| member id | 
+ **orderId** | **String**| order id | 
+ **paymentId** | **String**| payment id | 
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**MemberOrdersCreate201Response**](MemberOrdersCreate201Response.md)
 
 ### Authorization
 
@@ -417,28 +453,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberOrderPaymentsUpdateOneRefund"></a>
-# **memberOrderPaymentsUpdateOneRefund**
-> InlineResponse2013 memberOrderPaymentsUpdateOneRefund(memberId, orderId, paymentId)
+
+## memberOrderPaymentsUpdateOneRefund
+
+> MemberOrdersCreate201Response memberOrderPaymentsUpdateOneRefund(memberId, orderId, paymentId)
 
 Refund order payment
 
 Update status of payment associated with order to REFUNDED.  This operation will only be successful if payment status is already COMPLETE.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let orderId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | order id
-let paymentId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | payment id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let memberId = "memberId_example"; // String | member id
+let orderId = "orderId_example"; // String | order id
+let paymentId = "paymentId_example"; // String | payment id
 apiInstance.memberOrderPaymentsUpdateOneRefund(memberId, orderId, paymentId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -450,15 +489,16 @@ apiInstance.memberOrderPaymentsUpdateOneRefund(memberId, orderId, paymentId, (er
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **orderId** | [**String**](.md)| order id | 
- **paymentId** | [**String**](.md)| payment id | 
+ **memberId** | **String**| member id | 
+ **orderId** | **String**| order id | 
+ **paymentId** | **String**| payment id | 
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**MemberOrdersCreate201Response**](MemberOrdersCreate201Response.md)
 
 ### Authorization
 
@@ -466,26 +506,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberOrdersCreate"></a>
-# **memberOrdersCreate**
-> InlineResponse2013 memberOrdersCreate(memberId)
+
+## memberOrdersCreate
+
+> MemberOrdersCreate201Response memberOrdersCreate(memberId)
 
 Create new order
 
-Create new order owned by memberId.  This operation is restricted to auth member&#x27;s memberId unless role is elevated.
+Create new order owned by memberId.  This operation is restricted to auth member&#39;s memberId unless role is elevated.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let memberId = "memberId_example"; // String | member id
 apiInstance.memberOrdersCreate(memberId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -497,13 +540,14 @@ apiInstance.memberOrdersCreate(memberId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
+ **memberId** | **String**| member id | 
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**MemberOrdersCreate201Response**](MemberOrdersCreate201Response.md)
 
 ### Authorization
 
@@ -511,26 +555,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberOrdersList"></a>
-# **memberOrdersList**
-> InlineResponse20018 memberOrdersList(memberId, opts)
+
+## memberOrdersList
+
+> MemberOrdersList200Response memberOrdersList(memberId, opts)
 
 List member orders
 
 Returns all member orders.  This operation is restricted to auth memberId or elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let opts = { 
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let memberId = "memberId_example"; // String | member id
+let opts = {
   'includeDeleted': true // Boolean | 
 };
 apiInstance.memberOrdersList(memberId, opts, (error, data, response) => {
@@ -544,14 +592,15 @@ apiInstance.memberOrdersList(memberId, opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
+ **memberId** | **String**| member id | 
  **includeDeleted** | **Boolean**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**MemberOrdersList200Response**](MemberOrdersList200Response.md)
 
 ### Authorization
 
@@ -559,28 +608,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberOrdersUpdateOne"></a>
-# **memberOrdersUpdateOne**
-> InlineResponse2013 memberOrdersUpdateOne(memberId, orderId, opts)
+
+## memberOrdersUpdateOne
+
+> MemberOrdersCreate201Response memberOrdersUpdateOne(memberId, orderId, opts)
 
 Update member order
 
 Update order owned by memberId.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let orderId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | order id
-let opts = { 
-  'body': new MyOhioAssemblycomPublicApi.OrdersOrderIdBody() // OrdersOrderIdBody | 
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let memberId = "memberId_example"; // String | member id
+let orderId = "orderId_example"; // String | order id
+let opts = {
+  'memberOrdersUpdateOneRequest': new MyOhioAssemblyComPublicApi.MemberOrdersUpdateOneRequest() // MemberOrdersUpdateOneRequest | 
 };
 apiInstance.memberOrdersUpdateOne(memberId, orderId, opts, (error, data, response) => {
   if (error) {
@@ -593,15 +646,16 @@ apiInstance.memberOrdersUpdateOne(memberId, orderId, opts, (error, data, respons
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **orderId** | [**String**](.md)| order id | 
- **body** | [**OrdersOrderIdBody**](OrdersOrderIdBody.md)|  | [optional] 
+ **memberId** | **String**| member id | 
+ **orderId** | **String**| order id | 
+ **memberOrdersUpdateOneRequest** | [**MemberOrdersUpdateOneRequest**](MemberOrdersUpdateOneRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**MemberOrdersCreate201Response**](MemberOrdersCreate201Response.md)
 
 ### Authorization
 
@@ -609,27 +663,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="memberOrdersUpdateOneCancel"></a>
-# **memberOrdersUpdateOneCancel**
-> InlineResponse2013 memberOrdersUpdateOneCancel(memberId, orderId)
+
+## memberOrdersUpdateOneCancel
+
+> MemberOrdersCreate201Response memberOrdersUpdateOneCancel(memberId, orderId)
 
 Cancel order
 
 Cancels order, changing order status to CANCELLED.  This operation is allowed unless order is in CLOSED or CONFIRMED status.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let orderId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | order id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let memberId = "memberId_example"; // String | member id
+let orderId = "orderId_example"; // String | order id
 apiInstance.memberOrdersUpdateOneCancel(memberId, orderId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -641,14 +698,15 @@ apiInstance.memberOrdersUpdateOneCancel(memberId, orderId, (error, data, respons
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **orderId** | [**String**](.md)| order id | 
+ **memberId** | **String**| member id | 
+ **orderId** | **String**| order id | 
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**MemberOrdersCreate201Response**](MemberOrdersCreate201Response.md)
 
 ### Authorization
 
@@ -656,27 +714,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberOrdersUpdateOneConfirm"></a>
-# **memberOrdersUpdateOneConfirm**
-> InlineResponse2013 memberOrdersUpdateOneConfirm(memberId, orderId)
+
+## memberOrdersUpdateOneConfirm
+
+> MemberOrdersCreate201Response memberOrdersUpdateOneConfirm(memberId, orderId)
 
 Confirm paid order
 
 Confirms order, creating purchase items and changing order status to CONFIRMED.  This operation is only allowed if order is in PAID status.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let orderId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | order id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let memberId = "memberId_example"; // String | member id
+let orderId = "orderId_example"; // String | order id
 apiInstance.memberOrdersUpdateOneConfirm(memberId, orderId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -688,14 +749,15 @@ apiInstance.memberOrdersUpdateOneConfirm(memberId, orderId, (error, data, respon
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **orderId** | [**String**](.md)| order id | 
+ **memberId** | **String**| member id | 
+ **orderId** | **String**| order id | 
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**MemberOrdersCreate201Response**](MemberOrdersCreate201Response.md)
 
 ### Authorization
 
@@ -703,27 +765,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberOrdersUpdateOneSubmit"></a>
-# **memberOrdersUpdateOneSubmit**
-> InlineResponse2013 memberOrdersUpdateOneSubmit(memberId, orderId)
+
+## memberOrdersUpdateOneSubmit
+
+> MemberOrdersCreate201Response memberOrdersUpdateOneSubmit(memberId, orderId)
 
 Submit paid order
 
 Submits order, freezing order items (cart) and changing order status to SUBMITTED.  This operation is only allowed if order is in OPEN status.  This operation is restricted to auth member id and elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let orderId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | order id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let memberId = "memberId_example"; // String | member id
+let orderId = "orderId_example"; // String | order id
 apiInstance.memberOrdersUpdateOneSubmit(memberId, orderId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -735,14 +800,15 @@ apiInstance.memberOrdersUpdateOneSubmit(memberId, orderId, (error, data, respons
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **orderId** | [**String**](.md)| order id | 
+ **memberId** | **String**| member id | 
+ **orderId** | **String**| order id | 
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**MemberOrdersCreate201Response**](MemberOrdersCreate201Response.md)
 
 ### Authorization
 
@@ -750,28 +816,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberPurchaseItemsFulfillmentStatusUpdateOne"></a>
-# **memberPurchaseItemsFulfillmentStatusUpdateOne**
-> InlineResponse20023 memberPurchaseItemsFulfillmentStatusUpdateOne(memberId, purchaseItemId, opts)
+
+## memberPurchaseItemsFulfillmentStatusUpdateOne
+
+> MemberPurchaseItemsUpdateOne200Response memberPurchaseItemsFulfillmentStatusUpdateOne(memberId, purchaseItemId, opts)
 
 Update one member purchase item, update fulfillment status
 
 Updates fulfillment status on specified member purchase item.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let purchaseItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | purchase item id
-let opts = { 
-  'body': new MyOhioAssemblycomPublicApi.PurchaseItemIdFulfillmentStatusBody() // PurchaseItemIdFulfillmentStatusBody | 
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let memberId = "memberId_example"; // String | member id
+let purchaseItemId = "purchaseItemId_example"; // String | purchase item id
+let opts = {
+  'memberPurchaseItemsFulfillmentStatusUpdateOneRequest': new MyOhioAssemblyComPublicApi.MemberPurchaseItemsFulfillmentStatusUpdateOneRequest() // MemberPurchaseItemsFulfillmentStatusUpdateOneRequest | 
 };
 apiInstance.memberPurchaseItemsFulfillmentStatusUpdateOne(memberId, purchaseItemId, opts, (error, data, response) => {
   if (error) {
@@ -784,15 +854,16 @@ apiInstance.memberPurchaseItemsFulfillmentStatusUpdateOne(memberId, purchaseItem
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **purchaseItemId** | [**String**](.md)| purchase item id | 
- **body** | [**PurchaseItemIdFulfillmentStatusBody**](PurchaseItemIdFulfillmentStatusBody.md)|  | [optional] 
+ **memberId** | **String**| member id | 
+ **purchaseItemId** | **String**| purchase item id | 
+ **memberPurchaseItemsFulfillmentStatusUpdateOneRequest** | [**MemberPurchaseItemsFulfillmentStatusUpdateOneRequest**](MemberPurchaseItemsFulfillmentStatusUpdateOneRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**MemberPurchaseItemsUpdateOne200Response**](MemberPurchaseItemsUpdateOne200Response.md)
 
 ### Authorization
 
@@ -800,27 +871,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="memberPurchaseItemsList"></a>
-# **memberPurchaseItemsList**
-> InlineResponse20022 memberPurchaseItemsList(memberId, opts)
+
+## memberPurchaseItemsList
+
+> MemberPurchaseItemsList200Response memberPurchaseItemsList(memberId, opts)
 
 List member purchase items
 
 Returns all member purchase items.  If param filterStatus is provided the results will be filtered by given status.  This operation is restricted to auth memberId or elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let opts = { 
-  'filterStatus': new MyOhioAssemblycomPublicApi.ShopPurchaseItemFulfillmentStatus(), // ShopPurchaseItemFulfillmentStatus | member id
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let memberId = "memberId_example"; // String | member id
+let opts = {
+  'filterStatus': new MyOhioAssemblyComPublicApi.ShopPurchaseItemFulfillmentStatus(), // ShopPurchaseItemFulfillmentStatus | member id
   'includeDeleted': true // Boolean | 
 };
 apiInstance.memberPurchaseItemsList(memberId, opts, (error, data, response) => {
@@ -834,15 +909,16 @@ apiInstance.memberPurchaseItemsList(memberId, opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
+ **memberId** | **String**| member id | 
  **filterStatus** | [**ShopPurchaseItemFulfillmentStatus**](.md)| member id | [optional] 
  **includeDeleted** | **Boolean**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**MemberPurchaseItemsList200Response**](MemberPurchaseItemsList200Response.md)
 
 ### Authorization
 
@@ -850,28 +926,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberPurchaseItemsUpdateOne"></a>
-# **memberPurchaseItemsUpdateOne**
-> InlineResponse20023 memberPurchaseItemsUpdateOne(memberId, purchaseItemId, opts)
+
+## memberPurchaseItemsUpdateOne
+
+> MemberPurchaseItemsUpdateOne200Response memberPurchaseItemsUpdateOne(memberId, purchaseItemId, opts)
 
 Update one member purchase item
 
 Updates specified member purchase item.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let purchaseItemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | purchase item id
-let opts = { 
-  'body': new MyOhioAssemblycomPublicApi.PurchaseItemsPurchaseItemIdBody() // PurchaseItemsPurchaseItemIdBody | 
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let memberId = "memberId_example"; // String | member id
+let purchaseItemId = "purchaseItemId_example"; // String | purchase item id
+let opts = {
+  'memberPurchaseItemsUpdateOneRequest': new MyOhioAssemblyComPublicApi.MemberPurchaseItemsUpdateOneRequest() // MemberPurchaseItemsUpdateOneRequest | 
 };
 apiInstance.memberPurchaseItemsUpdateOne(memberId, purchaseItemId, opts, (error, data, response) => {
   if (error) {
@@ -884,15 +964,16 @@ apiInstance.memberPurchaseItemsUpdateOne(memberId, purchaseItemId, opts, (error,
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **purchaseItemId** | [**String**](.md)| purchase item id | 
- **body** | [**PurchaseItemsPurchaseItemIdBody**](PurchaseItemsPurchaseItemIdBody.md)|  | [optional] 
+ **memberId** | **String**| member id | 
+ **purchaseItemId** | **String**| purchase item id | 
+ **memberPurchaseItemsUpdateOneRequest** | [**MemberPurchaseItemsUpdateOneRequest**](MemberPurchaseItemsUpdateOneRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**MemberPurchaseItemsUpdateOne200Response**](MemberPurchaseItemsUpdateOne200Response.md)
 
 ### Authorization
 
@@ -900,26 +981,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="shopItemsCreate"></a>
-# **shopItemsCreate**
-> InlineResponse2012 shopItemsCreate(opts)
+
+## shopItemsCreate
+
+> ShopItemsCreate201Response shopItemsCreate(opts)
 
 Create shop item
 
 Create shop item.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let opts = { 
-  'body': new MyOhioAssemblycomPublicApi.ShopItemsBody() // ShopItemsBody | 
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let opts = {
+  'shopItemsCreateRequest': new MyOhioAssemblyComPublicApi.ShopItemsCreateRequest() // ShopItemsCreateRequest | 
 };
 apiInstance.shopItemsCreate(opts, (error, data, response) => {
   if (error) {
@@ -932,13 +1017,14 @@ apiInstance.shopItemsCreate(opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ShopItemsBody**](ShopItemsBody.md)|  | [optional] 
+ **shopItemsCreateRequest** | [**ShopItemsCreateRequest**](ShopItemsCreateRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2012**](InlineResponse2012.md)
+[**ShopItemsCreate201Response**](ShopItemsCreate201Response.md)
 
 ### Authorization
 
@@ -946,26 +1032,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="shopItemsDeleteOne"></a>
-# **shopItemsDeleteOne**
-> InlineResponse20017 shopItemsDeleteOne(itemId)
+
+## shopItemsDeleteOne
+
+> ShopItemsDeleteOne200Response shopItemsDeleteOne(itemId)
 
 Delete shop item
 
 Delete shop item.  This operation is restricted to users with elevated role.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let itemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | item id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let itemId = "itemId_example"; // String | item id
 apiInstance.shopItemsDeleteOne(itemId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -977,13 +1066,14 @@ apiInstance.shopItemsDeleteOne(itemId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | [**String**](.md)| item id | 
+ **itemId** | **String**| item id | 
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**ShopItemsDeleteOne200Response**](ShopItemsDeleteOne200Response.md)
 
 ### Authorization
 
@@ -991,25 +1081,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="shopItemsList"></a>
-# **shopItemsList**
-> InlineResponse20016 shopItemsList(opts)
+
+## shopItemsList
+
+> ShopItemsList200Response shopItemsList(opts)
 
 List shop items
 
 Returns all items available via shop.  This operation is restricted to elevated roles
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let opts = { 
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let opts = {
   'includeDeleted': true // Boolean | 
 };
 apiInstance.shopItemsList(opts, (error, data, response) => {
@@ -1023,13 +1117,14 @@ apiInstance.shopItemsList(opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **includeDeleted** | **Boolean**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**ShopItemsList200Response**](ShopItemsList200Response.md)
 
 ### Authorization
 
@@ -1037,27 +1132,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="shopItemsUpdateOne"></a>
-# **shopItemsUpdateOne**
-> InlineResponse2012 shopItemsUpdateOne(itemId, opts)
+
+## shopItemsUpdateOne
+
+> ShopItemsCreate201Response shopItemsUpdateOne(itemId, opts)
 
 Update shop item
 
 Update shop item.  This operation is restricted to users with elevated role.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.ShopApi();
-let itemId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | item id
-let opts = { 
-  'body': new MyOhioAssemblycomPublicApi.ItemsItemIdBody() // ItemsItemIdBody | 
+let apiInstance = new MyOhioAssemblyComPublicApi.ShopApi();
+let itemId = "itemId_example"; // String | item id
+let opts = {
+  'shopItemsUpdateOneRequest': new MyOhioAssemblyComPublicApi.ShopItemsUpdateOneRequest() // ShopItemsUpdateOneRequest | 
 };
 apiInstance.shopItemsUpdateOne(itemId, opts, (error, data, response) => {
   if (error) {
@@ -1070,14 +1169,15 @@ apiInstance.shopItemsUpdateOne(itemId, opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | [**String**](.md)| item id | 
- **body** | [**ItemsItemIdBody**](ItemsItemIdBody.md)|  | [optional] 
+ **itemId** | **String**| item id | 
+ **shopItemsUpdateOneRequest** | [**ShopItemsUpdateOneRequest**](ShopItemsUpdateOneRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2012**](InlineResponse2012.md)
+[**ShopItemsCreate201Response**](ShopItemsCreate201Response.md)
 
 ### Authorization
 
@@ -1085,6 +1185,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 

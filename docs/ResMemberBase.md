@@ -1,6 +1,7 @@
-# MyOhioAssemblycomPublicApi.ResMemberBase
+# MyOhioAssemblyComPublicApi.ResMemberBase
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [optional] 
@@ -10,3 +11,5 @@ Name | Type | Description | Notes
 **recordingSecretary** | [**DirectoryListing**](DirectoryListing.md) |  | [optional] 
 **nationality** | [**ResMemberBaseNationality**](ResMemberBaseNationality.md) |  | [optional] 
 **profile** | [**ResMemberProfile**](ResMemberProfile.md) |  | [optional] 
+
+

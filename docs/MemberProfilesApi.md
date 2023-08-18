@@ -1,6 +1,6 @@
-# MyOhioAssemblycomPublicApi.MemberProfilesApi
+# MyOhioAssemblyComPublicApi.MemberProfilesApi
 
-All URIs are relative to *http://localhost:{hostPort}/{apiVersion}*
+All URIs are relative to *http://localhost:8101/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,28 +11,31 @@ Method | HTTP request | Description
 [**memberProfileGet**](MemberProfilesApi.md#memberProfileGet) | **GET** /members/{memberId}/profile | Get member profile
 [**memberProfileUpdate**](MemberProfilesApi.md#memberProfileUpdate) | **PUT** /members/{memberId}/profile | Update member profile
 
-<a name="memberProfileDocsCreate"></a>
-# **memberProfileDocsCreate**
-> InlineResponse2008 memberProfileDocsCreate(memberId, profileDocKey, opts)
+
+
+## memberProfileDocsCreate
+
+> MemberProfileGet200Response memberProfileDocsCreate(memberId, profileDocKey, docName, docFile)
 
 Create new member profile doc
 
 Upload new profile document owned by member.  This operation will fail if a document already exists with same owner and file name.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.MemberProfilesApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
+let apiInstance = new MyOhioAssemblyComPublicApi.MemberProfilesApi();
+let memberId = "memberId_example"; // String | member id
 let profileDocKey = "profileDocKey_example"; // String | profile doc key
-let opts = { 
-  'docName': "docName_example", // String | 
-  'docFile': "docFile_example" // Blob | 
-};
-apiInstance.memberProfileDocsCreate(memberId, profileDocKey, opts, (error, data, response) => {
+let docName = "docName_example"; // String | 
+let docFile = "/path/to/file"; // File | 
+apiInstance.memberProfileDocsCreate(memberId, profileDocKey, docName, docFile, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -43,16 +46,17 @@ apiInstance.memberProfileDocsCreate(memberId, profileDocKey, opts, (error, data,
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
+ **memberId** | **String**| member id | 
  **profileDocKey** | **String**| profile doc key | 
- **docName** | **String**|  | [optional] 
- **docFile** | **Blob**|  | [optional] 
+ **docName** | **String**|  | 
+ **docFile** | **File**|  | 
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**MemberProfileGet200Response**](MemberProfileGet200Response.md)
 
 ### Authorization
 
@@ -60,28 +64,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
 
-<a name="memberProfileDocsDeleteOne"></a>
-# **memberProfileDocsDeleteOne**
-> InlineResponse2009 memberProfileDocsDeleteOne(memberId, profileDocKey, fileName)
+
+## memberProfileDocsDeleteOne
+
+> MemberProfileDocsDeleteOne200Response memberProfileDocsDeleteOne(memberId, profileDocKey, fileName)
 
 Delete existing member profile doc
 
 Delete document owned by member profile. This operation is restricted to auth user with memberId and elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.MemberProfilesApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
+let apiInstance = new MyOhioAssemblyComPublicApi.MemberProfilesApi();
+let memberId = "memberId_example"; // String | member id
 let profileDocKey = "profileDocKey_example"; // String | profile doc key
-let fileName = "fileName_example"; // String | member id
-
+let fileName = path/to/image.jpg; // String | member id
 apiInstance.memberProfileDocsDeleteOne(memberId, profileDocKey, fileName, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -93,15 +100,16 @@ apiInstance.memberProfileDocsDeleteOne(memberId, profileDocKey, fileName, (error
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
+ **memberId** | **String**| member id | 
  **profileDocKey** | **String**| profile doc key | 
  **fileName** | **String**| member id | 
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**MemberProfileDocsDeleteOne200Response**](MemberProfileDocsDeleteOne200Response.md)
 
 ### Authorization
 
@@ -109,30 +117,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberProfileDocsNameUpdateOne"></a>
-# **memberProfileDocsNameUpdateOne**
-> InlineResponse2008 memberProfileDocsNameUpdateOne(memberId, profileDocKey, opts)
+
+## memberProfileDocsNameUpdateOne
+
+> MemberProfileGet200Response memberProfileDocsNameUpdateOne(memberId, profileDocKey, docName)
 
 Update existing member profile doc name
 
 Update name of profile document owned by member.  This operation will not modify the document contents.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.MemberProfilesApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
+let apiInstance = new MyOhioAssemblyComPublicApi.MemberProfilesApi();
+let memberId = "memberId_example"; // String | member id
 let profileDocKey = "profileDocKey_example"; // String | profile doc key
-let opts = { 
-  'docName': "docName_example" // String | 
-};
-apiInstance.memberProfileDocsNameUpdateOne(memberId, profileDocKey, opts, (error, data, response) => {
+let docName = "docName_example"; // String | 
+apiInstance.memberProfileDocsNameUpdateOne(memberId, profileDocKey, docName, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -143,15 +153,16 @@ apiInstance.memberProfileDocsNameUpdateOne(memberId, profileDocKey, opts, (error
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
+ **memberId** | **String**| member id | 
  **profileDocKey** | **String**| profile doc key | 
- **docName** | **String**|  | [optional] 
+ **docName** | **String**|  | 
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**MemberProfileGet200Response**](MemberProfileGet200Response.md)
 
 ### Authorization
 
@@ -159,31 +170,33 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
 
-<a name="memberProfileDocsUpdateOne"></a>
-# **memberProfileDocsUpdateOne**
-> InlineResponse2008 memberProfileDocsUpdateOne(memberId, profileDocKey, opts)
+
+## memberProfileDocsUpdateOne
+
+> MemberProfileGet200Response memberProfileDocsUpdateOne(memberId, profileDocKey, docName, docFile)
 
 Update member profile doc
 
 Upload new document for member profile, overwriting existing doc.  This operation is restricted to memberId and elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.MemberProfilesApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
+let apiInstance = new MyOhioAssemblyComPublicApi.MemberProfilesApi();
+let memberId = "memberId_example"; // String | member id
 let profileDocKey = "profileDocKey_example"; // String | profile doc key
-let opts = { 
-  'docName': "docName_example", // String | 
-  'docFile': "docFile_example" // Blob | 
-};
-apiInstance.memberProfileDocsUpdateOne(memberId, profileDocKey, opts, (error, data, response) => {
+let docName = "docName_example"; // String | 
+let docFile = "/path/to/file"; // File | 
+apiInstance.memberProfileDocsUpdateOne(memberId, profileDocKey, docName, docFile, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -194,16 +207,17 @@ apiInstance.memberProfileDocsUpdateOne(memberId, profileDocKey, opts, (error, da
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
+ **memberId** | **String**| member id | 
  **profileDocKey** | **String**| profile doc key | 
- **docName** | **String**|  | [optional] 
- **docFile** | **Blob**|  | [optional] 
+ **docName** | **String**|  | 
+ **docFile** | **File**|  | 
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**MemberProfileGet200Response**](MemberProfileGet200Response.md)
 
 ### Authorization
 
@@ -211,26 +225,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
 
-<a name="memberProfileGet"></a>
-# **memberProfileGet**
-> InlineResponse2008 memberProfileGet(memberId)
+
+## memberProfileGet
+
+> MemberProfileGet200Response memberProfileGet(memberId)
 
 Get member profile
 
-Read member profile.  This operation is restricted to auth user&#x27;s memberId unless role is elevated.
+Read member profile.  This operation is restricted to auth user&#39;s memberId unless role is elevated.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.MemberProfilesApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.MemberProfilesApi();
+let memberId = "memberId_example"; // String | member id
 apiInstance.memberProfileGet(memberId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -242,13 +259,14 @@ apiInstance.memberProfileGet(memberId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
+ **memberId** | **String**| member id | 
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**MemberProfileGet200Response**](MemberProfileGet200Response.md)
 
 ### Authorization
 
@@ -256,27 +274,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberProfileUpdate"></a>
-# **memberProfileUpdate**
-> InlineResponse2008 memberProfileUpdate(memberId, opts)
+
+## memberProfileUpdate
+
+> MemberProfileGet200Response memberProfileUpdate(memberId, opts)
 
 Update member profile
 
 Update existing member profile
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.MemberProfilesApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let opts = { 
-  'body': new MyOhioAssemblycomPublicApi.MemberIdProfileBody() // MemberIdProfileBody | 
+let apiInstance = new MyOhioAssemblyComPublicApi.MemberProfilesApi();
+let memberId = "memberId_example"; // String | member id
+let opts = {
+  'memberProfileUpdateRequest': new MyOhioAssemblyComPublicApi.MemberProfileUpdateRequest() // MemberProfileUpdateRequest | 
 };
 apiInstance.memberProfileUpdate(memberId, opts, (error, data, response) => {
   if (error) {
@@ -289,14 +311,15 @@ apiInstance.memberProfileUpdate(memberId, opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **body** | [**MemberIdProfileBody**](MemberIdProfileBody.md)|  | [optional] 
+ **memberId** | **String**| member id | 
+ **memberProfileUpdateRequest** | [**MemberProfileUpdateRequest**](MemberProfileUpdateRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**MemberProfileGet200Response**](MemberProfileGet200Response.md)
 
 ### Authorization
 
@@ -304,6 +327,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 

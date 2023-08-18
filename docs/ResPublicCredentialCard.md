@@ -1,6 +1,7 @@
-# MyOhioAssemblycomPublicApi.ResPublicCredentialCard
+# MyOhioAssemblyComPublicApi.ResPublicCredentialCard
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **masterRecordNumber** | **String** |  | [optional] 
@@ -8,3 +9,5 @@ Name | Type | Description | Notes
 **updatedAt** | **Date** |  | [optional] 
 **memberProfile** | [**ResMemberProfile**](ResMemberProfile.md) |  | [optional] 
 **memberDocs** | [**ResMembershipDocs**](ResMembershipDocs.md) |  | [optional] 
+
+

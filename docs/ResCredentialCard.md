@@ -1,6 +1,7 @@
-# MyOhioAssemblycomPublicApi.ResCredentialCard
+# MyOhioAssemblyComPublicApi.ResCredentialCard
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [optional] 
@@ -13,3 +14,5 @@ Name | Type | Description | Notes
 **createdAt** | **Date** |  | [optional] 
 **updatedAt** | **Date** |  | [optional] 
 **member** | [**ResMemberBase**](ResMemberBase.md) |  | [optional] 
+
+

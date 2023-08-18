@@ -1,6 +1,6 @@
-# MyOhioAssemblycomPublicApi.CredentialCardsApi
+# MyOhioAssemblyComPublicApi.CredentialCardsApi
 
-All URIs are relative to *http://localhost:{hostPort}/{apiVersion}*
+All URIs are relative to *http://localhost:8101/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,21 +13,23 @@ Method | HTTP request | Description
 [**memberCredentialCardsUpdateOnePrint**](CredentialCardsApi.md#memberCredentialCardsUpdateOnePrint) | **PUT** /members/{memberId}/credentialCards/{credentialCardId}/print | Print credential card
 [**memberCredentialCardsUpdateOneVerify**](CredentialCardsApi.md#memberCredentialCardsUpdateOneVerify) | **PUT** /members/{memberId}/credentialCards/{credentialCardId}/verify | Verify credential card
 
-<a name="credentialCardsGetOne"></a>
-# **credentialCardsGetOne**
-> InlineResponse20015 credentialCardsGetOne(masterRecordNumber)
+
+
+## credentialCardsGetOne
+
+> CredentialCardsGetOne200Response credentialCardsGetOne(masterRecordNumber)
 
 Get public credential card
 
 Get existing credential card unless expired or deleted.  This is a public operation.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
 
-let apiInstance = new MyOhioAssemblycomPublicApi.CredentialCardsApi();
-let masterRecordNumber = "masterRecordNumber_example"; // String | unique master record number for credential card
-
+let apiInstance = new MyOhioAssemblyComPublicApi.CredentialCardsApi();
+let masterRecordNumber = 01OK4Y2; // String | unique master record number for credential card
 apiInstance.credentialCardsGetOne(masterRecordNumber, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -39,13 +41,14 @@ apiInstance.credentialCardsGetOne(masterRecordNumber, (error, data, response) =>
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **masterRecordNumber** | **String**| unique master record number for credential card | 
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**CredentialCardsGetOne200Response**](CredentialCardsGetOne200Response.md)
 
 ### Authorization
 
@@ -53,27 +56,31 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberCredentialCardsCreate"></a>
-# **memberCredentialCardsCreate**
-> InlineResponse2011 memberCredentialCardsCreate(memberId, opts)
+
+## memberCredentialCardsCreate
+
+> MemberCredentialCardsCreate201Response memberCredentialCardsCreate(memberId, opts)
 
 Create credential card
 
 Create credential card.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.CredentialCardsApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let opts = { 
-  'body': new MyOhioAssemblycomPublicApi.MemberIdCredentialCardsBody() // MemberIdCredentialCardsBody | 
+let apiInstance = new MyOhioAssemblyComPublicApi.CredentialCardsApi();
+let memberId = "memberId_example"; // String | member id
+let opts = {
+  'memberCredentialCardsCreateRequest': new MyOhioAssemblyComPublicApi.MemberCredentialCardsCreateRequest() // MemberCredentialCardsCreateRequest | 
 };
 apiInstance.memberCredentialCardsCreate(memberId, opts, (error, data, response) => {
   if (error) {
@@ -86,14 +93,15 @@ apiInstance.memberCredentialCardsCreate(memberId, opts, (error, data, response) 
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **body** | [**MemberIdCredentialCardsBody**](MemberIdCredentialCardsBody.md)|  | [optional] 
+ **memberId** | **String**| member id | 
+ **memberCredentialCardsCreateRequest** | [**MemberCredentialCardsCreateRequest**](MemberCredentialCardsCreateRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**MemberCredentialCardsCreate201Response**](MemberCredentialCardsCreate201Response.md)
 
 ### Authorization
 
@@ -101,27 +109,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="memberCredentialCardsDeleteOne"></a>
-# **memberCredentialCardsDeleteOne**
-> InlineResponse20011 memberCredentialCardsDeleteOne(memberId, credentialCardId)
+
+## memberCredentialCardsDeleteOne
+
+> MemberCredentialCardsDeleteOne200Response memberCredentialCardsDeleteOne(memberId, credentialCardId)
 
 Delete credential card
 
 Delete credential card even if deleted.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.CredentialCardsApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let credentialCardId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | credential card id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.CredentialCardsApi();
+let memberId = "memberId_example"; // String | member id
+let credentialCardId = "credentialCardId_example"; // String | credential card id
 apiInstance.memberCredentialCardsDeleteOne(memberId, credentialCardId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -133,14 +144,15 @@ apiInstance.memberCredentialCardsDeleteOne(memberId, credentialCardId, (error, d
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **credentialCardId** | [**String**](.md)| credential card id | 
+ **memberId** | **String**| member id | 
+ **credentialCardId** | **String**| credential card id | 
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**MemberCredentialCardsDeleteOne200Response**](MemberCredentialCardsDeleteOne200Response.md)
 
 ### Authorization
 
@@ -148,27 +160,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberCredentialCardsGetOne"></a>
-# **memberCredentialCardsGetOne**
-> InlineResponse2011 memberCredentialCardsGetOne(memberId, credentialCardId)
+
+## memberCredentialCardsGetOne
+
+> MemberCredentialCardsCreate201Response memberCredentialCardsGetOne(memberId, credentialCardId)
 
 Get one member credential card
 
-Get one member credential card even if expired but not if deleted.  This operation is restricted to auth user&#x27;s memberId and elevated roles.
+Get one member credential card even if expired but not if deleted.  This operation is restricted to auth user&#39;s memberId and elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.CredentialCardsApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let credentialCardId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | credential card id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.CredentialCardsApi();
+let memberId = "memberId_example"; // String | member id
+let credentialCardId = "credentialCardId_example"; // String | credential card id
 apiInstance.memberCredentialCardsGetOne(memberId, credentialCardId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -180,14 +195,15 @@ apiInstance.memberCredentialCardsGetOne(memberId, credentialCardId, (error, data
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **credentialCardId** | [**String**](.md)| credential card id | 
+ **memberId** | **String**| member id | 
+ **credentialCardId** | **String**| credential card id | 
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**MemberCredentialCardsCreate201Response**](MemberCredentialCardsCreate201Response.md)
 
 ### Authorization
 
@@ -195,27 +211,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberCredentialCardsList"></a>
-# **memberCredentialCardsList**
-> InlineResponse20010 memberCredentialCardsList(memberId, includeDeleted)
+
+## memberCredentialCardsList
+
+> MemberCredentialCardsList200Response memberCredentialCardsList(memberId, includeDeleted)
 
 List member credential cards
 
-Get all member credential cards even if expired but not if deleted.  This operation is restricted to auth user&#x27;s memberId and elevated roles.
+Get all member credential cards even if expired but not if deleted.  This operation is restricted to auth user&#39;s memberId and elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.CredentialCardsApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
+let apiInstance = new MyOhioAssemblyComPublicApi.CredentialCardsApi();
+let memberId = "memberId_example"; // String | member id
 let includeDeleted = true; // Boolean | 
-
 apiInstance.memberCredentialCardsList(memberId, includeDeleted, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -227,14 +246,15 @@ apiInstance.memberCredentialCardsList(memberId, includeDeleted, (error, data, re
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
+ **memberId** | **String**| member id | 
  **includeDeleted** | **Boolean**|  | 
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**MemberCredentialCardsList200Response**](MemberCredentialCardsList200Response.md)
 
 ### Authorization
 
@@ -242,28 +262,32 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberCredentialCardsUpdateOneExpiry"></a>
-# **memberCredentialCardsUpdateOneExpiry**
-> InlineResponse2011 memberCredentialCardsUpdateOneExpiry(memberId, credentialCardId, opts)
+
+## memberCredentialCardsUpdateOneExpiry
+
+> MemberCredentialCardsCreate201Response memberCredentialCardsUpdateOneExpiry(memberId, credentialCardId, opts)
 
 Update expiration date on credential card
 
 Update expiration date on credential card.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.CredentialCardsApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let credentialCardId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | credential card id
-let opts = { 
-  'body': new MyOhioAssemblycomPublicApi.CredentialCardIdExpirationBody() // CredentialCardIdExpirationBody | 
+let apiInstance = new MyOhioAssemblyComPublicApi.CredentialCardsApi();
+let memberId = "memberId_example"; // String | member id
+let credentialCardId = "credentialCardId_example"; // String | credential card id
+let opts = {
+  'memberCredentialCardsUpdateOneExpiryRequest': new MyOhioAssemblyComPublicApi.MemberCredentialCardsUpdateOneExpiryRequest() // MemberCredentialCardsUpdateOneExpiryRequest | 
 };
 apiInstance.memberCredentialCardsUpdateOneExpiry(memberId, credentialCardId, opts, (error, data, response) => {
   if (error) {
@@ -276,15 +300,16 @@ apiInstance.memberCredentialCardsUpdateOneExpiry(memberId, credentialCardId, opt
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **credentialCardId** | [**String**](.md)| credential card id | 
- **body** | [**CredentialCardIdExpirationBody**](CredentialCardIdExpirationBody.md)|  | [optional] 
+ **memberId** | **String**| member id | 
+ **credentialCardId** | **String**| credential card id | 
+ **memberCredentialCardsUpdateOneExpiryRequest** | [**MemberCredentialCardsUpdateOneExpiryRequest**](MemberCredentialCardsUpdateOneExpiryRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**MemberCredentialCardsCreate201Response**](MemberCredentialCardsCreate201Response.md)
 
 ### Authorization
 
@@ -292,27 +317,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="memberCredentialCardsUpdateOnePrint"></a>
-# **memberCredentialCardsUpdateOnePrint**
-> InlineResponse2011 memberCredentialCardsUpdateOnePrint(memberId, credentialCardId)
+
+## memberCredentialCardsUpdateOnePrint
+
+> MemberCredentialCardsCreate201Response memberCredentialCardsUpdateOnePrint(memberId, credentialCardId)
 
 Print credential card
 
 Print credential card.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.CredentialCardsApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let credentialCardId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | credential card id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.CredentialCardsApi();
+let memberId = "memberId_example"; // String | member id
+let credentialCardId = "credentialCardId_example"; // String | credential card id
 apiInstance.memberCredentialCardsUpdateOnePrint(memberId, credentialCardId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -324,14 +352,15 @@ apiInstance.memberCredentialCardsUpdateOnePrint(memberId, credentialCardId, (err
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **credentialCardId** | [**String**](.md)| credential card id | 
+ **memberId** | **String**| member id | 
+ **credentialCardId** | **String**| credential card id | 
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**MemberCredentialCardsCreate201Response**](MemberCredentialCardsCreate201Response.md)
 
 ### Authorization
 
@@ -339,27 +368,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="memberCredentialCardsUpdateOneVerify"></a>
-# **memberCredentialCardsUpdateOneVerify**
-> InlineResponse2011 memberCredentialCardsUpdateOneVerify(memberId, credentialCardId)
+
+## memberCredentialCardsUpdateOneVerify
+
+> MemberCredentialCardsCreate201Response memberCredentialCardsUpdateOneVerify(memberId, credentialCardId)
 
 Verify credential card
 
 Verify credential card.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.CredentialCardsApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let credentialCardId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | credential card id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.CredentialCardsApi();
+let memberId = "memberId_example"; // String | member id
+let credentialCardId = "credentialCardId_example"; // String | credential card id
 apiInstance.memberCredentialCardsUpdateOneVerify(memberId, credentialCardId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -371,14 +403,15 @@ apiInstance.memberCredentialCardsUpdateOneVerify(memberId, credentialCardId, (er
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **credentialCardId** | [**String**](.md)| credential card id | 
+ **memberId** | **String**| member id | 
+ **credentialCardId** | **String**| credential card id | 
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**MemberCredentialCardsCreate201Response**](MemberCredentialCardsCreate201Response.md)
 
 ### Authorization
 
@@ -386,6 +419,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 

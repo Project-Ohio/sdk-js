@@ -1,6 +1,7 @@
-# MyOhioAssemblycomPublicApi.ResMembershipDocs
+# MyOhioAssemblyComPublicApi.ResMembershipDocs
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **declarationAmericans** | [**ResMemberDoc**](ResMemberDoc.md) |  | [optional] 
@@ -48,3 +49,5 @@ Name | Type | Description | Notes
 **municipalGovtDocs** | [**[ResMemberDoc]**](ResMemberDoc.md) |  | [optional] 
 **commercialEntityDocs** | [**[ResMemberDoc]**](ResMemberDoc.md) |  | [optional] 
 **commonLawWill** | [**ResMemberDoc**](ResMemberDoc.md) |  | [optional] 
+
+

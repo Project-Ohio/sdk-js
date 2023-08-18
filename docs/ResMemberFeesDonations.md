@@ -1,6 +1,7 @@
-# MyOhioAssemblycomPublicApi.ResMemberFeesDonations
+# MyOhioAssemblyComPublicApi.ResMemberFeesDonations
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **credentialCardFee** | **String** |  | [optional] 
@@ -10,3 +11,5 @@ Name | Type | Description | Notes
 **donationStateChiefMarshal** | **String** |  | [optional] 
 **donationDesignatedRecipient** | **String** |  | [optional] 
 **donationDesignatedAmount** | **String** |  | [optional] 
+
+

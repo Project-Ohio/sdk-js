@@ -1,6 +1,7 @@
-# MyOhioAssemblycomPublicApi.ResShopOrderPayment
+# MyOhioAssemblyComPublicApi.ResShopOrderPayment
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [optional] 
@@ -12,3 +13,5 @@ Name | Type | Description | Notes
 **updatedAt** | **Date** |  | [optional] 
 **refundedAt** | **Date** |  | [optional] 
 **deletedAt** | **Date** |  | [optional] 
+
+

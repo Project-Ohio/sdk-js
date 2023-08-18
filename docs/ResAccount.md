@@ -1,6 +1,7 @@
-# MyOhioAssemblycomPublicApi.ResAccount
+# MyOhioAssemblyComPublicApi.ResAccount
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Object** |  | [optional] 
@@ -11,3 +12,5 @@ Name | Type | Description | Notes
 **createdAt** | **Object** |  | [optional] 
 **updatedAt** | **Object** |  | [optional] 
 **deletedAt** | **Object** |  | [optional] 
+
+

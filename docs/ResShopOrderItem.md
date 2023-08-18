@@ -1,6 +1,7 @@
-# MyOhioAssemblycomPublicApi.ResShopOrderItem
+# MyOhioAssemblyComPublicApi.ResShopOrderItem
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [optional] 
@@ -8,3 +9,5 @@ Name | Type | Description | Notes
 **amountDiscount** | **String** |  | [optional] 
 **notes** | **String** |  | [optional] 
 **listing** | [**ResShopItem**](ResShopItem.md) |  | [optional] 
+
+

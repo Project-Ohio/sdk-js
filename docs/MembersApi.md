@@ -1,6 +1,6 @@
-# MyOhioAssemblycomPublicApi.MembersApi
+# MyOhioAssemblyComPublicApi.MembersApi
 
-All URIs are relative to *http://localhost:{hostPort}/{apiVersion}*
+All URIs are relative to *http://localhost:8101/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,24 +11,29 @@ Method | HTTP request | Description
 [**membersList**](MembersApi.md#membersList) | **GET** /members | List members
 [**membershipSignup**](MembersApi.md#membershipSignup) | **POST** /memberships/signup | Create new member via public signup
 
-<a name="memberUpdate"></a>
-# **memberUpdate**
-> InlineResponse201 memberUpdate(memberId, opts)
+
+
+## memberUpdate
+
+> MembershipSignup201Response memberUpdate(memberId, opts)
 
 Update existing member
 
 Update member.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.MembersApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-let opts = { 
-  'body': new MyOhioAssemblycomPublicApi.MembersMemberIdBody() // MembersMemberIdBody | 
+let apiInstance = new MyOhioAssemblyComPublicApi.MembersApi();
+let memberId = "memberId_example"; // String | member id
+let opts = {
+  'memberUpdateRequest': new MyOhioAssemblyComPublicApi.MemberUpdateRequest() // MemberUpdateRequest | 
 };
 apiInstance.memberUpdate(memberId, opts, (error, data, response) => {
   if (error) {
@@ -41,14 +46,15 @@ apiInstance.memberUpdate(memberId, opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
- **body** | [**MembersMemberIdBody**](MembersMemberIdBody.md)|  | [optional] 
+ **memberId** | **String**| member id | 
+ **memberUpdateRequest** | [**MemberUpdateRequest**](MemberUpdateRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**MembershipSignup201Response**](MembershipSignup201Response.md)
 
 ### Authorization
 
@@ -56,26 +62,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="membersCreate"></a>
-# **membersCreate**
-> InlineResponse201 membersCreate(opts)
+
+## membersCreate
+
+> MembershipSignup201Response membersCreate(opts)
 
 Create new member
 
 Create new member (unverified)
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.MembersApi();
-let opts = { 
-  'body': new MyOhioAssemblycomPublicApi.MembersBody() // MembersBody | 
+let apiInstance = new MyOhioAssemblyComPublicApi.MembersApi();
+let opts = {
+  'membersCreateRequest': new MyOhioAssemblyComPublicApi.MembersCreateRequest() // MembersCreateRequest | 
 };
 apiInstance.membersCreate(opts, (error, data, response) => {
   if (error) {
@@ -88,13 +98,14 @@ apiInstance.membersCreate(opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**MembersBody**](MembersBody.md)|  | [optional] 
+ **membersCreateRequest** | [**MembersCreateRequest**](MembersCreateRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**MembershipSignup201Response**](MembershipSignup201Response.md)
 
 ### Authorization
 
@@ -102,26 +113,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="membersDeleteOne"></a>
-# **membersDeleteOne**
-> InlineResponse2007 membersDeleteOne(memberId)
+
+## membersDeleteOne
+
+> MembersDeleteOne200Response membersDeleteOne(memberId)
 
 Delete member
 
 Deletes existing non-deleted member.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.MembersApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.MembersApi();
+let memberId = "memberId_example"; // String | member id
 apiInstance.membersDeleteOne(memberId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -133,13 +147,14 @@ apiInstance.membersDeleteOne(memberId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
+ **memberId** | **String**| member id | 
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**MembersDeleteOne200Response**](MembersDeleteOne200Response.md)
 
 ### Authorization
 
@@ -147,26 +162,29 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="membersGetOne"></a>
-# **membersGetOne**
-> InlineResponse201 membersGetOne(memberId)
+
+## membersGetOne
+
+> MembershipSignup201Response membersGetOne(memberId)
 
 Get one member
 
 Retrieve member.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.MembersApi();
-let memberId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | member id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.MembersApi();
+let memberId = "memberId_example"; // String | member id
 apiInstance.membersGetOne(memberId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -178,13 +196,14 @@ apiInstance.membersGetOne(memberId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberId** | [**String**](.md)| member id | 
+ **memberId** | **String**| member id | 
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**MembershipSignup201Response**](MembershipSignup201Response.md)
 
 ### Authorization
 
@@ -192,24 +211,28 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="membersList"></a>
-# **membersList**
-> InlineResponse2006 membersList()
+
+## membersList
+
+> MembersList200Response membersList()
 
 List members
 
 Retrieve list of all members.  This operation is restricted to elevated roles.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.MembersApi();
+let apiInstance = new MyOhioAssemblyComPublicApi.MembersApi();
 apiInstance.membersList((error, data, response) => {
   if (error) {
     console.error(error);
@@ -220,11 +243,12 @@ apiInstance.membersList((error, data, response) => {
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**MembersList200Response**](MembersList200Response.md)
 
 ### Authorization
 
@@ -232,24 +256,26 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="membershipSignup"></a>
-# **membershipSignup**
-> InlineResponse201 membershipSignup(opts)
+
+## membershipSignup
+
+> MembershipSignup201Response membershipSignup(opts)
 
 Create new member via public signup
 
 Create new member (unverified)
 
 ### Example
-```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
 
-let apiInstance = new MyOhioAssemblycomPublicApi.MembersApi();
-let opts = { 
-  'body': new MyOhioAssemblycomPublicApi.MembershipsSignupBody() // MembershipsSignupBody | 
+```javascript
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+
+let apiInstance = new MyOhioAssemblyComPublicApi.MembersApi();
+let opts = {
+  'membershipSignupRequest': new MyOhioAssemblyComPublicApi.MembershipSignupRequest() // MembershipSignupRequest | 
 };
 apiInstance.membershipSignup(opts, (error, data, response) => {
   if (error) {
@@ -262,13 +288,14 @@ apiInstance.membershipSignup(opts, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**MembershipsSignupBody**](MembershipsSignupBody.md)|  | [optional] 
+ **membershipSignupRequest** | [**MembershipSignupRequest**](MembershipSignupRequest.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**MembershipSignup201Response**](MembershipSignup201Response.md)
 
 ### Authorization
 
@@ -276,6 +303,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 

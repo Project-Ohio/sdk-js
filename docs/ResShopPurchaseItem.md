@@ -1,6 +1,7 @@
-# MyOhioAssemblycomPublicApi.ResShopPurchaseItem
+# MyOhioAssemblyComPublicApi.ResShopPurchaseItem
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | [optional] 
@@ -12,3 +13,5 @@ Name | Type | Description | Notes
 **createdAt** | **Date** |  | [optional] 
 **updatedAt** | **Date** |  | [optional] 
 **deletedAt** | **Object** |  | [optional] 
+
+

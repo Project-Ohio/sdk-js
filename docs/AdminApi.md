@@ -1,6 +1,6 @@
-# MyOhioAssemblycomPublicApi.AdminApi
+# MyOhioAssemblyComPublicApi.AdminApi
 
-All URIs are relative to *http://localhost:{hostPort}/{apiVersion}*
+All URIs are relative to *http://localhost:8101/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,23 +8,27 @@ Method | HTTP request | Description
 [**accountsList**](AdminApi.md#accountsList) | **GET** /accounts | List all accounts
 [**authAccountPasswordResetCreate**](AdminApi.md#authAccountPasswordResetCreate) | **POST** /accounts/{accountId}/pass/reset | Password reset account
 
-<a name="accountsDeleteOne"></a>
-# **accountsDeleteOne**
-> InlineResponse20025 accountsDeleteOne(accountId)
+
+
+## accountsDeleteOne
+
+> AccountsDeleteOne200Response accountsDeleteOne(accountId)
 
 Delete one account
 
 Delete one account.  This operation is restricted to administrators
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.AdminApi();
-let accountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | account id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.AdminApi();
+let accountId = "accountId_example"; // String | account id
 apiInstance.accountsDeleteOne(accountId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -36,13 +40,14 @@ apiInstance.accountsDeleteOne(accountId, (error, data, response) => {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | [**String**](.md)| account id | 
+ **accountId** | **String**| account id | 
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**AccountsDeleteOne200Response**](AccountsDeleteOne200Response.md)
 
 ### Authorization
 
@@ -50,24 +55,28 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="accountsList"></a>
-# **accountsList**
-> InlineResponse20024 accountsList()
+
+## accountsList
+
+> AccountsList200Response accountsList()
 
 List all accounts
 
 List all accounts except any sensitive auth data and member data.  This operation is restricted to administrators
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.AdminApi();
+let apiInstance = new MyOhioAssemblyComPublicApi.AdminApi();
 apiInstance.accountsList((error, data, response) => {
   if (error) {
     console.error(error);
@@ -78,11 +87,12 @@ apiInstance.accountsList((error, data, response) => {
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**AccountsList200Response**](AccountsList200Response.md)
 
 ### Authorization
 
@@ -90,26 +100,29 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="authAccountPasswordResetCreate"></a>
-# **authAccountPasswordResetCreate**
-> InlineResponse20026 authAccountPasswordResetCreate(accountId)
+
+## authAccountPasswordResetCreate
+
+> AuthAccountPasswordResetCreate200Response authAccountPasswordResetCreate(accountId)
 
 Password reset account
 
-Reset account password.  This operation is restricted to elevated roles unless auth user is also the user being reset.  This action will also cause an email to be sent to user with a temporary password which must be changed upon first logging in.
+Reset account password.  This operation is restricted to elevated roles.  This action will also cause an email to be sent to user with a temporary password which must be changed upon first logging in.
 
 ### Example
+
 ```javascript
-import {MyOhioAssemblycomPublicApi} from 'my_ohio_assemblycom_public_api';
-let defaultClient = MyOhioAssemblycomPublicApi.ApiClient.instance;
+import MyOhioAssemblyComPublicApi from 'my_ohio_assembly_com_public_api';
+let defaultClient = MyOhioAssemblyComPublicApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+bearerTokenAuth.accessToken = "YOUR ACCESS TOKEN"
 
-
-let apiInstance = new MyOhioAssemblycomPublicApi.AdminApi();
-let accountId = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // String | account id
-
+let apiInstance = new MyOhioAssemblyComPublicApi.AdminApi();
+let accountId = "accountId_example"; // String | account id
 apiInstance.authAccountPasswordResetCreate(accountId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -121,13 +134,14 @@ apiInstance.authAccountPasswordResetCreate(accountId, (error, data, response) =>
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | [**String**](.md)| account id | 
+ **accountId** | **String**| account id | 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**AuthAccountPasswordResetCreate200Response**](AuthAccountPasswordResetCreate200Response.md)
 
 ### Authorization
 
@@ -135,6 +149,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
