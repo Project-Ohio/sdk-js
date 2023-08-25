@@ -1,23 +1,24 @@
 {
   "name": "my_ohio_assembly_com_public_api",
   "version": "0.1.0",
-  "description": "REST API for MyOhioAssembly.com",
-  "license": "Unlicense",
+  "description": "SDK for MyOhioAssembly.com REST API",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",
     "prepare": "npm run build",
-    "test": "mocha --require @babel/register --recursive"
+    "test": "mocha --require @babel/register --recursive",
+    "browserify": "browserify src/index.js --s myohioassembly -p esmify > bundle.js"
   },
   "browser": {
     "fs": false
   },
   "dependencies": {
     "@babel/cli": "^7.0.0",
+    "browser-resolve": "^2.0.0",
     "superagent": "^5.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.22.11",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-proposal-decorators": "^7.0.0",
     "@babel/plugin-proposal-do-expressions": "^7.0.0",
@@ -36,6 +37,8 @@
     "@babel/plugin-syntax-import-meta": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "babelify": "^10.0.0",
+    "esmify": "^2.1.1",
     "expect.js": "^0.3.1",
     "mocha": "^8.0.1",
     "sinon": "^7.2.0"
