@@ -1,26 +1,23 @@
 document.addEventListener('DOMContentLoaded', async () => {
     let defaultClient = myohioassembly.ApiClient.instance;
 
-    // Configure HTTP basic authorization: basicEmailPassword
-    let basicEmailPassword = defaultClient.authentications['basicEmailPassword'];
-    basicEmailPassword.username = 'admin@myohioassembly.com';
-    basicEmailPassword.password = 'Admin23';
+    // Configure Bearer (JWT) access token for authorization: bearerTokenAuth
+    let bearerTokenAuth = defaultClient.authentications['bearerTokenAuth'];
+    bearerTokenAuth.accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJteW9oaW9hc3NlbWJseS5jb20iLCJzdWIiOiIxNzcwODJhZS0xNjZlLTQ2MzItYWYxMC01MDM5ZWVmNmJhOTEiLCJleHAiOjE2OTMyNzE4MTEsImp0aSI6IjNjZmRjMWYzLTg4M2ItNGYyYy1iNDcxLTMxNjE3MGE0NWYyZSIsInJvbGUiOjN9.NuH9oTy0QuuaYBArTjUFRwyuA4FqBbyngLVSDbENDsg";
 
     let apiInstance = new myohioassembly.AuthApi();
 
-    let req = {
-        captchaResToken: '13a9aee1-0d94-4335-8ebe-bb4b1fb19e68',
-        elevatedPass: 'mmsAdmin2323'
-    }
-
     let opts = {
-        'authLoginCreateRequest': req
+        'authEmailUpdateRequestRequest': new myohioassembly.AuthEmailUpdateRequestRequest(
+            'email@example.com',
+            'email@example.com'
+        )
     };
 
     let res;
     try {
         res = await new Promise((resolve, reject) => {
-            apiInstance.authLoginCreate(opts, (error, data, response) => {
+            apiInstance.authEmailUpdateRequest(opts, (error, data, response) => {
                 if (error) {
                     reject({
                         summary: response,

@@ -7,7 +7,7 @@
     "build": "babel src -d dist",
     "prepare": "npm run build",
     "test": "mocha --require @babel/register --recursive",
-    "browserify": "browserify src/index.js --s myohioassembly -p esmify > bundle.js"
+    "browserify": "browserify src/index.js --s myohioassembly -p esmify > myohioassembly-sdk-bundle.js"
   },
   "browser": {
     "fs": false

@@ -4692,11 +4692,11 @@ class ApiClient {
    * Overrides the default value set in spec file if present
    * @param {String} basePath
    */
-  constructor(basePath = 'http://localhost:8101/v1') {
+  constructor(basePath = 'https://api.myohioassembly.com/v1') {
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
-     * @default http://localhost:8101/v1
+     * @default https://api.myohioassembly.com/v1
      */
     this.basePath = basePath.replace(/\/+$/, '');
 
@@ -5226,13 +5226,13 @@ class ApiClient {
     */
   hostSettings() {
     return [{
-      'url': "http://localhost:{hostPort}/{apiVersion}",
+      'url': "https://{apiServerSubdomain}.myohioassembly.com/{apiVersion}",
       'description': "No description provided",
       'variables': {
-        hostPort: {
+        apiServerSubdomain: {
           'description': "No description provided",
-          'default_value': "8101",
-          'enum_values': ["8101"]
+          'default_value': "api",
+          'enum_values': ["api"]
         },
         apiVersion: {
           'description': "No description provided",
@@ -5241,13 +5241,13 @@ class ApiClient {
         }
       }
     }, {
-      'url': "https://{apiServerSubdomain}.myohioassembly.com/{apiVersion}",
+      'url': "http://localhost:{hostPort}/{apiVersion}",
       'description': "No description provided",
       'variables': {
-        apiServerSubdomain: {
+        hostPort: {
           'description': "No description provided",
-          'default_value': "api",
-          'enum_values': ["api"]
+          'default_value': "8101",
+          'enum_values': ["8101"]
         },
         apiVersion: {
           'description': "No description provided",

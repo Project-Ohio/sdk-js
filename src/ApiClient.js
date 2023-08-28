@@ -33,7 +33,7 @@ class ApiClient {
      * Overrides the default value set in spec file if present
      * @param {String} basePath
      */
-    constructor(basePath = 'http://localhost:8101/v1') {
+    constructor(basePath = 'https://api.myohioassembly.com/v1') {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
@@ -595,46 +595,46 @@ class ApiClient {
     hostSettings() {
         return [
             {
-              'url': "http://localhost:{hostPort}/{apiVersion}",
-              'description': "No description provided",
-              'variables': {
-                hostPort: {
-                    'description': "No description provided",
-                    'default_value': "8101",
-                    'enum_values': [
-                      "8101"
-                    ]
-                  },
-                apiVersion: {
-                    'description': "No description provided",
-                    'default_value': "v1",
-                    'enum_values': [
-                      "v1"
-                    ]
-                  }
+                'url': "https://{apiServerSubdomain}.myohioassembly.com/{apiVersion}",
+                'description': "No description provided",
+                'variables': {
+                    apiServerSubdomain: {
+                        'description': "No description provided",
+                        'default_value': "api",
+                        'enum_values': [
+                            "api"
+                        ]
+                    },
+                    apiVersion: {
+                        'description': "No description provided",
+                        'default_value': "v1",
+                        'enum_values': [
+                            "v1"
+                        ]
+                    }
                 }
             },
             {
-              'url': "https://{apiServerSubdomain}.myohioassembly.com/{apiVersion}",
-              'description': "No description provided",
-              'variables': {
-                apiServerSubdomain: {
-                    'description': "No description provided",
-                    'default_value': "api",
-                    'enum_values': [
-                      "api"
-                    ]
-                  },
-                apiVersion: {
-                    'description': "No description provided",
-                    'default_value': "v1",
-                    'enum_values': [
-                      "v1"
-                    ]
-                  }
+                'url': "http://localhost:{hostPort}/{apiVersion}",
+                'description': "No description provided",
+                'variables': {
+                    hostPort: {
+                        'description': "No description provided",
+                        'default_value': "8101",
+                        'enum_values': [
+                            "8101"
+                        ]
+                    },
+                    apiVersion: {
+                        'description': "No description provided",
+                        'default_value': "v1",
+                        'enum_values': [
+                            "v1"
+                        ]
+                    }
                 }
             }
-      ];
+        ];
     }
 
     getBasePathFromSettings(index, variables={}) {
